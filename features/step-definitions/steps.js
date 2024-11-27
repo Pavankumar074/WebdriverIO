@@ -4,6 +4,7 @@ const { expect, $ } = require('@wdio/globals')
 const LoginPage = require('../pageobjects/login.page');
 const SecurePage = require('../pageobjects/secure.page');
 const HomePage = require('../pageobjects/home.page');
+const cartPage = require('../pageobjects/cart.page');
 
 const pages = {
     login: LoginPage,
@@ -36,4 +37,15 @@ Then(/^I should see Item added in the cart$/, async() => {
     await expect(SecurePage.addedItemName).toBeExisting();
     await expect(SecurePage.addedItemSize).toBeExisting();
     await expect(SecurePage.addedItemColour).toBeExisting();
+});
+
+Then(/^I should be able to place order successfuly$/, async() => {
+    await cartPage.checkOut();
+    await cartPage.addStreetAddressValue();
+    await cartPage.addCityValue();
+    await cartPage.selectStateValue();
+    await cartPage.addPhoneNumber();
+    await cartPage.selectShippingMethodasflatRate();
+    await cartPage.clickNectButton();
+    await cartPage.clickOnPlaceOrderButton();
 });

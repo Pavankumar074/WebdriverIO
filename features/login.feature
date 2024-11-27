@@ -15,3 +15,8 @@ Feature: The Magento Website
     Given I click on Men section and navigate to desired Item
     When I click on Add Item to Cart
     Then I should see Item added in the cart
+
+  Scenario: Place the order for Item which is placed in cart
+
+    When I should see Item added in the cart
+    Then I should be able to place order successfuly
