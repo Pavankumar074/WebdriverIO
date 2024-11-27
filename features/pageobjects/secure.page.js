@@ -9,8 +9,20 @@ class SecurePage extends Page {
      * define selectors using getter methods
      */
     get flashAlert () {
-        return $('#flash');
+        return $('span[class="logged-in"]');
+    }
+
+    get addedItemName () {
+        return $('=Cronus Yoga Pant');
+    }
+
+    get addedItemSize () {
+        return $('=36');
+    }
+
+    get addedItemColour () {
+        return $('=Red');
     }
 }
 
-module.exports = new SecurePage();
+module.exports = new SecurePage();  
